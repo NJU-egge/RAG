@@ -1,39 +1,48 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const PromptEval = () => {
   // 定义状态变量来存储后端返回的数据
-  const [data, setData] = useState(null);
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    // 使用axios调用后端接口
-    axios.get('http://127.0.0.1:5000/')
-      .then(response => {
-        // 请求成功，设置数据
-        setData(response.data);
-      })
-      .catch(err => {
-        // 请求失败，设置错误信息
-        setError(err.message);
+  const handleSubmit = async () => {
+    try {
+      // 使用 axios 向后端发送 POST 请求
+      const response = await axios.post('http://127.0.0.1:5000/submit', {
+        message: message
       });
-  }, []);
+
+      // 设置响应数据
+      setResponse(response.data);
+      setError(null);
+    } catch (err) {
+      // 设置错误信息
+      setError(err.message);
+      setResponse(null);
+    }
+  };
 
   return (
-    <div>
-      <h1>Hello World</h1>
-      {data ? (
-        <div>
-          <p>Name: {data.message}</p>
-        
-        </div>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+      <div>
+        <h1>Submit Message</h1>
+        <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Enter your message here..."
+        />
+        <button onClick={handleSubmit}>Submit</button>
+        {response ? (
+            <div>
+              <h2>Response from Server:</h2>
+              <p>Received Message: {response.received_message}</p>
+            </div>
+        ) : error ? (
+            <p>Error: {error}</p>
+        ) : null}
+      </div>
   );
 };
 

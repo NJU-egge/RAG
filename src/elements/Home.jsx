@@ -3,45 +3,24 @@ import axios from 'axios';
 
 // 初始界面，含有登录、注册按钮
 const Home = () => {
-  const [message, setMessage] = useState('');
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
 
-  const handleSubmit = async () => {
-    try {
-      // 使用 axios 向后端发送 POST 请求
-      const response = await axios.post('http://127.0.0.1:5000/submit', {
-        message: message
-      });
-
-      // 设置响应数据
-      setResponse(response.data);
-      setError(null);
-    } catch (err) {
-      // 设置错误信息
-      setError(err.message);
-      setResponse(null);
-    }
-  };
 
   return (
     <div>
-      <h1>Submit Message</h1>
-      <textarea
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Enter your message here..."
-      />
-      <button onClick={handleSubmit}>Submit</button>
-      {response ? (
+
+      <div>
         <div>
-          <h2>Response from Server:</h2>
-          <p>Received Message: {response.received_message}</p>
+          <h1>Code_crafts RAG</h1>
         </div>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : null}
+        <div>
+          <a href="/RAG/#/rag_application" className="text-blue-300 font-bold text-2xl">RAG应用</a>
+          <a href="/RAG/#/rag_eval" className="text-blue-300 font-bold text-2xl">RAG评估</a>
+          <a href="/RAG/#/prompt_eval" className="text-blue-300 font-bold text-2xl">Prompt评估</a>
+        </div>
+      </div>
     </div>
+
+
   );
 
   
