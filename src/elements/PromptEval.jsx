@@ -25,25 +25,41 @@ const PromptEval = () => {
     }
   };
 
-  return (
-      <div>
-        <h1>Submit Message</h1>
-        <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Enter your message here..."
-        />
-        <button onClick={handleSubmit}>Submit</button>
-        {response ? (
-            <div>
-              <h2>Response from Server:</h2>
-              <p>Received Message: {response.received_message}</p>
+    return (
+        <div className="container mx-auto p-4">
+            <div className="bg-white shadow-md rounded-xl p-6">
+                <h1 className="text-2xl font-bold mb-4">Prompt评估</h1>
+                <div className="mb-4">
+          <textarea
+              value={message}
+              rows="4"
+              cols="50"
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Enter your message here..."
+              className="w-full bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+          />
+                </div>
+                <div className="mb-4">
+          <textarea
+              value={response ? ` ${response.received_message}` : error ? `Error: ${error}` : ""}
+              readOnly
+              rows="4"
+              cols="50"
+              placeholder="Waiting for response..."
+              className="w-full bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+          />
+                </div>
+                <div>
+                    <button
+                        onClick={handleSubmit}
+                        className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+                    >
+                        Submit
+                    </button>
+                </div>
             </div>
-        ) : error ? (
-            <p>Error: {error}</p>
-        ) : null}
-      </div>
-  );
+        </div>
+    );
 };
 
 export default PromptEval;
