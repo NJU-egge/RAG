@@ -13,7 +13,7 @@ export default defineConfig({
       },
     },
   },
-  base: '/frontend/',
+  base: '/RAG/',
   build: {
     outDir: 'docs'
   }
