@@ -11,7 +11,7 @@ const PromptEval = () => {
   const handleSubmit = async () => {
     try {
       // 使用 axios 向后端发送 POST 请求
-      const response = await axios.post('https://386e8b73.r10.cpolar.top/prompt_improve', {
+      const response = await axios.post('/api/prompt_improve', {
         message: message
       });
 
@@ -32,21 +32,21 @@ const PromptEval = () => {
                 <div className="mb-4">
           <textarea
               value={message}
-              rows="4"
+              rows="6"
               cols="50"
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Enter your message here..."
-              className="w-full bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full text-xl bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
           />
                 </div>
                 <div className="mb-4">
           <textarea
               value={response ? ` ${response.received_message}` : error ? `Error: ${error}` : ""}
               readOnly
-              rows="4"
+              rows="6"
               cols="50"
               placeholder="Waiting for response..."
-              className="w-full bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+              className="w-full text-xl bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
           />
                 </div>
                 <div>
