@@ -11,7 +11,7 @@ const PromptEval = () => {
   const handleSubmit = async () => {
     try {
       // 使用 axios 向后端发送 POST 请求
-      const response = await axios.post('/api/prompt_improve', {
+      const response = await axios.post('https://382ba7cb.r10.cpolar.top/prompt_improve', {
         message: message
       });
 
@@ -28,7 +28,7 @@ const PromptEval = () => {
     return (
         <div className="container mx-auto p-4">
             <div className="bg-white shadow-md rounded-xl p-6">
-                <h1 className="text-2xl font-bold mb-4">Prompt评估</h1>
+                <h1 className="text-2xl font-bold mb-4">Prompt优化</h1>
                 <div className="mb-4">
           <textarea
               value={message}
