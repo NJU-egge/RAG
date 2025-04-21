@@ -11,7 +11,7 @@ const PromptEval = () => {
   const handleSubmit = async () => {
     try {
       // 使用 axios 向后端发送 POST 请求
-      const response = await axios.post('https://39406054.r10.cpolar.top/prompt_improve', {
+      const response = await axios.post('/api/prompt_improve', {
         message: message
       });
 

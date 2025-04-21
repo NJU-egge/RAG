@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'https://39406054.r10.cpolar.top', // 后端服务地址
+        target: 'https://382ba7cb.r10.cpolar.top', // 后端服务地址
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
