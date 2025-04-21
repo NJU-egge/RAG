@@ -12,7 +12,7 @@ const RagApplication = () => {
     const handleSubmit = async () => {
         try {
             // 使用 axios 向后端发送 POST 请求
-            const response = await axios.post('/api/rag_app', {
+            const response = await axios.post('https://382ba7cb.r10.cpolar.top/rag_app', {
                 message: message
             });
 
@@ -29,7 +29,7 @@ const RagApplication = () => {
     return (
         <div className="container mx-auto p-4">
             <div className="bg-white shadow-md rounded-xl p-6">
-                <h1 className="text-2xl font-bold mb-4">RAG应用</h1>
+                <h1 className="text-2xl font-bold mb-4">RAG 应用</h1>
                 <div className="mb-4">
           <textarea
               value={message}
