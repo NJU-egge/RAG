@@ -65,6 +65,7 @@ const PromptEval = () => {
     const [question, setQuestion] = useState(null);
   const [response, setResponse] = useState('');
   const [context, setContext] = useState('')
+    const [yourmetric, setYourmetric] = useState('')
   const [error, setError] = useState(null);
   const [selectedOption, setSelectedOption] = useState('bleu'); // 默认选中bleu
 
@@ -74,7 +75,8 @@ const PromptEval = () => {
       const response = await axios.post('https://382ba7cb.r10.cpolar.top/prompt_eval', {
         question: question,
           context: context,
-          metric: selectedOption
+          metric: selectedOption,
+          yourmetric : yourmetric
       });
 
       // 设置响应数据
@@ -141,7 +143,16 @@ const PromptEval = () => {
                           className="w-full text-xl bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
                       />
                 </div>
-
+                <div className="mb-4">
+                      <textarea
+                          value={yourmetric}
+                          rows="6"
+                          cols="50"
+                          onChange={(e) => setYourmetric(e.target.value)}
+                          placeholder="自定义指标"
+                          className="w-full text-xl bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+                      />
+                </div>
 
                 <div className="mb-4">
                       <textarea
@@ -187,6 +198,7 @@ const PromptEval = () => {
                         onChange={(e) => setSelectedOption((e.target.value))}>
                         <option value="bleu">bleu</option>
                         <option value="faithfulness">faithfulness</option>
+                        <option value="yourself">yourself</option>
                     </select>
 
                 </div>
