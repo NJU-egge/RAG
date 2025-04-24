@@ -12,7 +12,7 @@ const RagApplication = () => {
     const handleSubmit = async () => {
         try {
             // 使用 axios 向后端发送 POST 请求
-            const response = await axios.post('https://382ba7cb.r10.cpolar.top/rag_app', {
+            const response = await axios.post('https://4fa04919.r10.cpolar.top/rag_app', {
                 message: message
             });
 
