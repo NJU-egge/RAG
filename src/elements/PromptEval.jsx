@@ -73,7 +73,7 @@ const PromptEval = () => {
     const handleSubmit = async () => {
         try {
             // 使用 axios 向后端发送 POST 请求
-            const response = await axios.post('https://4fa04919.r10.cpolar.top/prompt_eval', {
+            const response = await axios.post('https://4ebb9471.r10.cpolar.top/prompt_eval', {
                 question: question,
                 context: context,
                 metric: selectedOption,
@@ -93,7 +93,7 @@ const PromptEval = () => {
     const handleParamSubmit = async () => {
         try {
             // 使用 axios 向后端发送 POST 请求
-            const response = await axios.post('https://4fa04919.r10.cpolar.top/prompt_fill', {
+            const response = await axios.post('https://4ebb9471.r10.cpolar.top/prompt_fill', {
                 prompt: prompt,
                 param: param
             });
@@ -111,7 +111,7 @@ const PromptEval = () => {
     const handleBetterSubmit = async () => {
         try {
             // 使用 axios 向后端发送 POST 请求
-            const response = await axios.post('https://4fa04919.r10.cpolar.top/prompt_improve', {
+            const response = await axios.post('https://4ebb9471.r10.cpolar.top/prompt_improve', {
                 message: prompt
             });
 
@@ -250,7 +250,7 @@ const PromptEval = () => {
                             优化
                         </button>
                     </div>
-                    <div className=" px-4 mb-4">
+                    <div className="flex flex-row px-4 mb-4">
                         <div className="mb-4">
                         <textarea
                             value={response ? ` ${response.received_message}` : error ? `Error: ${error}` : ""}
@@ -261,7 +261,11 @@ const PromptEval = () => {
                             className="w-full text-xl bg-blue-50 rounded-2xl p-2 border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
                         />
                         </div>
+                        <div className="col-last">
+                            <h2>/100</h2>
+                        </div>
                     </div>
+
                     <div>
                         <button onClick={addDataPoint}
                                 className="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">添加数据点</button>
