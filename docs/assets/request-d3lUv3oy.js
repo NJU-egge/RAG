@@ -1,0 +1,1 @@
+import{M as t}from"./index-qUL-dtZK.js";const r=t.create();function s(){return sessionStorage.getItem("token")!=""}r.interceptors.request.use(e=>(s()&&(e.headers.token=sessionStorage.getItem("token")),e),e=>(console.log(e),Promise.reject()));r.interceptors.response.use(e=>e.status===200?e:Promise.reject(),e=>(console.log(e),Promise.reject()));export{r as s};

@@ -1,24 +1,30 @@
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+/src/rag-frontend/logs
+/src/rag-frontend/*.log
+/src/rag-frontend/npm-debug.log*
+/src/rag-frontend/yarn-debug.log*
+/src/rag-frontend/yarn-error.log*
+/src/rag-frontend/pnpm-debug.log*
+/src/rag-frontend/lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+/src/rag-frontend/node_modules
+/src/rag-frontend/.DS_Store
+/src/rag-frontend/dist
+/src/rag-frontend/dist-ssr
+/src/rag-frontend/coverage
+/src/rag-frontend/*.local
+
+/src/rag-frontend/cypress/videos/
+/src/rag-frontend/cypress/screenshots/
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+/src/rag-frontend/.vscode/*
+/src/rag-frontend/!.vscode/extensions.json
+/src/rag-frontend/.idea
+/src/rag-frontend/*.suo
+/src/rag-frontend/*.ntvs*
+/src/rag-frontend/*.njsproj
+/src/rag-frontend/*.sln
+/src/rag-frontend/*.sw?
+
+/src/rag-frontend/*.tsbuildinfo
