@@ -17,11 +17,9 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         })],
     server: {
+        host: '0.0.0.0',
         port: 3000,   //设定前端运行的端口
         open: true,
     },
-    base: './',
-    build: {
-        outDir: '../../docs'
-    }
+    base: './'
 })

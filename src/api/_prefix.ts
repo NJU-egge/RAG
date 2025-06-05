@@ -1,6 +1,6 @@
 //prefix.tx
 //总api
-export const API_MODULE = 'http://10.54.15.144:5000'
+export const API_MODULE = 'http://10.52.56.16:5000'
 
 //登录注册模块
 export const USER_MODULE = `${API_MODULE}/user`

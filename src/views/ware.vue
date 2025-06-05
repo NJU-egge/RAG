@@ -47,7 +47,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import {WARE_MODULE} from "../api/_prefix.js";
+import {ASK_MODULE, WARE_MODULE} from "../api/_prefix.js";
+import { API_MODULE } from "../api/_prefix.js"
 
 // 定义一个变量来存储从后端获取的数字
 const numberFromBackend = ref('')
@@ -65,7 +66,7 @@ onMounted(async () => {
 
 const downloadFile = async () => {
   try {
-    const response = await fetch('http://localhost:5000/download-xlsx');
+    const response = await fetch(`${API_MODULE}/download-xlsx`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -91,7 +92,7 @@ const formData = ref({
 
 const submitForm = async () => {
   try {
-    const response = await fetch('http://localhost:5000/kb/update', {
+    const response = await fetch(`${API_MODULE}/kb/update`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ const targetPage = ref(1);
 
 const fetchData = async (page = 1) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/data?page=${page}&page_size=${pageSize.value}`);
+    const response = await fetch(`${API_MODULE}/api/data?page=${page}&page_size=${pageSize.value}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

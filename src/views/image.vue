@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { axios } from '../utils/request';
 import { ElMessage } from 'element-plus';
+import { API_MODULE } from "../api/_prefix.js"
 
 const inputText = ref('');
 const imageUrl = ref('');
@@ -18,7 +19,7 @@ const generateImage = async () => {
   errorMessage.value = '';
 
   try {
-    const response = await axios.post('http://localhost:5000/api/generate-image', {
+    const response = await axios.post(`${API_MODULE}/api/generate-image`, {
       text: inputText.value
     });
 

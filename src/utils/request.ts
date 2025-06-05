@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 //创建一个axios的实例service
-const service = axios.create()
-
+const service = axios.create({timeout: 120000})
+// axios.defaults.timeout = 120000
 //判断是否登录
 function hasToken() {
     return !(sessionStorage.getItem('token') == '')

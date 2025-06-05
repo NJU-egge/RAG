@@ -75,8 +75,12 @@ const handleSend = async () => {
 const handleNewConversation = async () => {
   const res = await createTable({ userId: userId.value });
   if (res.data.code === '200') {
+    const newTableId = res.data.data;
+    console.log('handleNewConversation:newTableId:',newTableId);
     await loadConversations();
-    await loadChatHistory(res.data.data); // 切换到新对话
+    console.log('handleNewConversation:newTableId:',newTableId);
+    await loadChatHistory(newTableId); // 切换到新对话
+    console.log('handleNewConversation:newTableId:',newTableId);
   } else {
     ElMessage.error('新建对话失败');
   }

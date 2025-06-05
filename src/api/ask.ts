@@ -46,4 +46,3 @@ export const getTableContentById = (userId:string,tableId: string) => {
     return axios.get<ResultVO<string[]>>(`${ASK_MODULE}/table/${userId}/${tableId}`);
 };
 
-//
